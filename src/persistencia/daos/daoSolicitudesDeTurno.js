@@ -3,10 +3,13 @@ function crearDaoSolicitudesDeTurno() {
 
   return {
     add: (solicitud) => {
-      const existe = solicitudes.some((s) => {
+      const existeSolicitud = solicitudes.some((s) => {
         return s.id === solicitud.id;
       });
-      if (!existe) {
+      const existePaciente = solicitudes.some((s) => {
+        return s.paciente.dni === solicitud.paciente.dni;
+      });
+      if (!(existeSolicitud || existePaciente)) {
         solicitudes.push(solicitud);
         return true;
       } else {

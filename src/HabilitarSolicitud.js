@@ -8,8 +8,8 @@ function HabilitarSolicitud(daoSolicitudesDeTurno, emailModule) {
       if (!fueAgregado) {
         throw new Error("el paciente ya esta en la lista de espera");
       }
-      emailModule.avisoAPaciente(paciente);
-      emailModule.avisoAAdmin(paciente);
+      //  emailModule.avisoAPaciente(paciente);
+      // emailModule.avisoAAdmin(paciente);
       return solicitud;
     },
   };

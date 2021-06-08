@@ -30,6 +30,8 @@ async function test() {
   try {
     const solicitud = casoDeUso.ejecutar({ paciente: yo });
     console.log(solicitud);
+    const solicitudErr = casoDeUso.ejecutar({ paciente: yo });
+    console.log("Este log no deberia aparecer", solicitudErr);
   } catch (err) {
     console.error("Error habilitando paciente:", err.message);
   }
