@@ -1,6 +1,6 @@
-import { HabilitarPaciente } from "./src/HabilitarPaciente.js";
 import { crearEmailModule } from "./src/moduloMailing/EmailModule.js";
-import { crearDaoPacientes } from "./src/persistencia/daos/daoPacientes.js";
+import { crearDaoSolicitudesDeTurno } from "./src/persistencia/daos/daoSolicitudesDeTurno.js";
+import { HabilitarSolicitud } from "./src/HabilitarSolicitud.js";
 
 const yo = {
   nombre: "Sasha",
@@ -23,16 +23,13 @@ const auth = {
 };
 
 async function test() {
-  const daoPacientes = crearDaoPacientes();
   const emailModule = await crearEmailModule(auth, "s.nberkowsky@gmail.com");
-  const casoDeUso = HabilitarPaciente(daoPacientes, emailModule);
+  const daoSolicitudes = crearDaoSolicitudesDeTurno();
+  const casoDeUso = HabilitarSolicitud(daoSolicitudes, emailModule);
 
   try {
-    const paciente = casoDeUso.ejecutar(yo);
-    console.log(paciente);
-
-    const pacienteErr = casoDeUso.ejecutar(yo);
-    console.log("No se deberia mostrar este paciente:", pacienteErr);
+    const solicitud = casoDeUso.ejecutar({ paciente: yo });
+    console.log(solicitud);
   } catch (err) {
     console.error("Error habilitando paciente:", err.message);
   }

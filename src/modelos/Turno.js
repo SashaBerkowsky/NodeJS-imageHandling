@@ -1,16 +1,16 @@
 const tiposDeVacunaAceptadas = ["sputnik-v", "covishield", "sinopharm"];
 
-function crearCitacion(datos) {
-  const citacion = {};
+function crearTurno(datos) {
+  const turno = {};
   const dateFormat = /^(\d{2})\-(\d{2})\-(\d{4})$/;
   let esVacunaAceptada = false;
 
   if (!datos.fecha) {
-    citacion.fecha = undefined;
+    turno.fecha = undefined;
   } else if (!dateFormat.test(datos.fecha)) {
     throw new Error("fecha invalida");
   } else {
-    citacion.fecha = datos.fecha;
+    turno.fecha = datos.fecha;
   }
 
   if (!datos.lugarVac) {
@@ -28,18 +28,18 @@ function crearCitacion(datos) {
   if (!esVacunaAceptada) {
     throw new Error("tipo de vacuna incorrecta");
   } else {
-    citacion.tipoVacuna = datos.tipoVacuna;
+    turno.tipoVacuna = datos.tipoVacuna;
   }
 
   if (!datos.lugarVac) {
     throw new Error("falta el lugar de vacunacion");
   } else {
-    citacion.lugarVac = datos.lugarVac;
+    turno.lugarVac = datos.lugarVac;
   }
 
-  citacion.fueAplicada = false;
+  turno.fueAplicada = false;
 
-  return citacion;
+  return turno;
 }
 
-export { crearCitacion };
+export { crearTurno };

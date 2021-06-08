@@ -1,5 +1,3 @@
-let idPaciente = 0;
-
 function crearPaciente(datos) {
   const paciente = {};
   const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
@@ -58,8 +56,6 @@ function crearPaciente(datos) {
   } else {
     paciente.dni = Number(datos.dni);
   }
-
-  paciente.id = idPaciente++;
 
   return paciente;
 }
