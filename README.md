@@ -1,4 +1,4 @@
-# PetClinic-imageHandling
+#  NodeJS-imageHandling
 Manage image uploads inside a NodeJS API
 This is an image module for a _vaccine appointment manager_ fullstack proyect
 ## Resources
