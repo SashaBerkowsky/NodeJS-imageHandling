@@ -1,4 +1,4 @@
-# habilitarPacienteTP2
+# PetClinic-imageHandling
 Manage image uploads inside a NodeJS API
 This is an image module for a [pet clinic proyect]() fullstack proyect
 ## Resources
